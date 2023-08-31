@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: 'Cabin Sketch', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+font-family: 'Cabin Sketch', cursive;
+}
+
+.homepage-login-signup-container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+}
+
+.homepage-chat-app-name-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:  black;
+  font-size: xxx-large;
+  background-color: white;
+  border-radius: 10rem;
+  font-family: 'Cabin Sketch', cursive;
+  width: 40%;
+}
+.homepage-login-signup-box {
+  background-color: white;
+  width: 100%;
+  padding: 4rem;
+  border-radius: 10rem;
+  border: 1px solid;
+}
+.chatpage-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.chatpage-content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 91.5vh;
+  padding: 10px;
+}
+
+.header-and-sideDrawer-container {
+  font-family: 'Cabin Sketch', cursive;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  padding: 5px 10px 5px 10px;
+}
+.header-title {
+  font-size: xxx-large;
+}
+.search-other-users {
+  padding-left: 1rem;
+  font-size: x-large;
+  /* todo: make this disappear for smaller screens */
+}
+.profile-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.profile-modal-img-container {
+  width: 150px;
+}
+.profile-modal-img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.profile-modal-txt,.modal-header {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: x-large;
+  text-align: center;
+  margin-top: 1rem;
+}
+.modal-header {
+  font-size: xxx-large;
+}
