@@ -65,12 +65,12 @@ const authenticateUser = asyncHandler(async (req, res) => {
   }
 });
 
-//@description     Get or Search all users
+//@description     Get or Search all users by name or email
 //@route           GET /api/user?search=
 //@access          Public
 // /api/user?search=par&lastname=aggarwal
 const getUsersByNameEmailOrId = asyncHandler(async (req, res) => {
-  const keyword = req.query.search// instead of making this POST and then using req.body
+  const keyword = req.query.search// instead of making this POST( using req.body) we use query params
     ? {
       $or: [
         { name: { $regex: req.query.search, $options: "i" } },// options is for case sensitivity

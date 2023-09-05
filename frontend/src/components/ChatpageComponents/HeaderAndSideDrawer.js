@@ -96,8 +96,11 @@ function SideDrawer() {
         },
       };
       const { data } = await axios.post(`/api/chat`, { userId }, config);
+      // Fetching or creating a one to one chat
+      //userId is sent as req.body
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
+
       setSelectedChat(data);
       setLoadingChat(false);
       onClose();

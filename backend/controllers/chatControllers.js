@@ -7,7 +7,7 @@ const User = require("../models/userModel");
 //@access          Protected
 const accessChat = asyncHandler(async (req, res) => {
   const { userId } = req.body;
-
+  //we are going to create a chat with this same userId
   if (!userId) {
     console.log("UserId param not sent with request");
     return res.sendStatus(400);
@@ -16,14 +16,14 @@ const accessChat = asyncHandler(async (req, res) => {
   var isChat = await Chat.find({
     isGroupChat: false,
     $and: [
-      { users: { $elemMatch: { $eq: req.user._id } } },
-      { users: { $elemMatch: { $eq: userId } } },
+      { users: { $elemMatch: { $eq: req.user._id } } },// Logged-in user (via JWT decode)
+      { users: { $elemMatch: { $eq: userId } } },// target user for chat via req.body
     ],
   })
     .populate("users", "-password")//give me all info about user exept password
     .populate("latestMessage");
 
-  isChat = await User.populate(isChat, {
+  isChat = await User.populate(isChat, {// latestMessage has a sender ref of type User
     path: "latestMessage.sender",
     select: "name pic email",
   });
@@ -56,11 +56,11 @@ const accessChat = asyncHandler(async (req, res) => {
 //@access          Protected
 const fetchChats = asyncHandler(async (req, res) => {
   try {
-    Chat.find({ users: { $elemMatch: { $eq: req.user._id } } })
-      .populate("users", "-password")
-      .populate("groupAdmin", "-password")
+    Chat.find({ users: { $elemMatch: { $eq: req.user._id } } })// req.user._id via JWT
+      .populate("users", "-password")// populate all user fields except password
+      .populate("groupAdmin", "-password")// populate all groupAdmin fields except password
       .populate("latestMessage")
-      .sort({ updatedAt: -1 })
+      .sort({ updatedAt: -1 })// sort from new to old
       .then(async (results) => {
         results = await User.populate(results, {
           path: "latestMessage.sender",
@@ -165,7 +165,7 @@ const removeFromGroup = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Add user to Group / Leave
+// @desc    Add user to Group
 // @route   PUT /api/chat/groupadd
 // @access  Protected
 const addToGroup = asyncHandler(async (req, res) => {
