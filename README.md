@@ -19,6 +19,6 @@
 
 ## DEMO
 ### ONE TO ONE CHAT
-![](./one-one-upload.gif)
+![](./one-to-one.gif)
 ### GROUP CHAT
 ![](./group-chat.gif)
