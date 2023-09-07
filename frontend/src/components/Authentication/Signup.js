@@ -68,9 +68,11 @@ const Signup = () => {
         isClosable: true,
         position: "bottom",
       });
+      localStorage.removeItem("userInfo");
       localStorage.setItem("userInfo", JSON.stringify(data));
       setPicLoading(false);
       history.push("/chats");// a newer version of useNavigate hook
+      window.location.reload();
     } catch (error) {
       toast({
         title: "Error Occured!",
