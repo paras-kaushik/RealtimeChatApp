@@ -17,7 +17,7 @@
 -  Passwords should be encrypted and stored
 -  JWT should be used as a stateless solution for authentication and authorization
 
-## DEMO
+## DEMOS
 ### ONE TO ONE CHAT
 ![](./one-to-one.gif)
 ### GROUP CHAT
