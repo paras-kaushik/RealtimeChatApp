@@ -37,4 +37,4 @@
 | /api/chat/groupremove|  PUT | Protected  |   Remove user from Group  |
 | /api/Message/    | POST  | Protected  | Create New Message and also set it as lastMessage of the corresponding chat    |
 | /api/Message/:chatId    | GET  | Protected  | Get all Messages for a particular chat ID  |
-|   ![](./images/2023-09-09-15-06-54.png)     |![](./images/2023-09-09-15-11-37.png)|![](./images/2023-09-09-15-18-42.png)|
+| All Models-> |  ![](./images/2023-09-09-15-06-54.png)     |![](./images/2023-09-09-15-11-37.png)|![](./images/2023-09-09-15-18-42.png)|
