@@ -39,7 +39,7 @@ const sendMessage = asyncHandler(async (req, res) => {
   }
 });
 
-//@description     Get all Messages for a particulat chat ID
+//@description     Get all Messages for a particular chat ID
 //@route           GET /api/Message/:chatId
 //@access          Protected
 const allMessages = asyncHandler(async (req, res) => {

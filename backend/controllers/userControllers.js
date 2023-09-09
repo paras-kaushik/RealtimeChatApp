@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const generateToken = require("../config/generateToken");
 
-//@description     Register new user
+//@description     Register/SignIn new user
 //@route           POST /api/user/
 //@access          Public
 const registerUser = asyncHandler(async (req, res) => {
@@ -69,6 +69,7 @@ const authenticateUser = asyncHandler(async (req, res) => {
 //@route           GET /api/user?search=
 //@access          Public
 // /api/user?search=par&lastname=aggarwal
+
 const getUsersByNameEmailOrId = asyncHandler(async (req, res) => {
   const keyword = req.query.search// instead of making this POST( using req.body) we use query params
     ? {
