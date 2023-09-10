@@ -1,4 +1,9 @@
 # Whatsapp Clone
+## Live Demo Site
+> https://whatsappclone-vm8w.onrender.com/
+## Demo Video
+> https://youtu.be/zHjOs1UGmjE
+
 
 ## Functional Requirements
 -  User should be able to Sign in with an profile image (BLOB storage needed)
