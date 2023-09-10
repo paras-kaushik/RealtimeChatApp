@@ -14,8 +14,8 @@ import animationData from "../animations/typing.json";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./ChatpageComponents/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
-//const ENDPOINT = "http://localhost:5000"; //
-const ENDPOINT = 'https://whatsappclone-vm8w.onrender.com/'
+const ENDPOINT = "http://localhost:5000";
+//const ENDPOINT = 'https://whatsappclone-vm8w.onrender.com/'
 // we are to make a socket connection with this backend
 var socket, selectedChatCompare;
 

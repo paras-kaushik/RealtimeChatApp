@@ -2,6 +2,22 @@ const asyncHandler = require("express-async-handler");
 const Message = require("../models/messageModel");
 const User = require("../models/userModel");
 const Chat = require("../models/chatModel");
+const amqp = require('amqplib');
+
+async function publishMessage(message) {
+  const connection = await amqp.connect('amqp://0.0.0.0:5672');
+  const channel = await connection.createChannel();
+
+  const queueName = 'message_created_queue';
+
+  await channel.assertQueue(queueName);
+  channel.sendToQueue(queueName, Buffer.from(message));
+
+  console.log(`Message sent: ${message}`);
+
+  await channel.close();
+  await connection.close();
+}
 
 //@description     Create New Message
 //@route           POST /api/Message/
@@ -31,7 +47,7 @@ const sendMessage = asyncHandler(async (req, res) => {
     });
 
     await Chat.findByIdAndUpdate(req.body.chatId, { latestMessage: message });
-
+    publishMessage(JSON.stringify(message));// data replication to message query service
     res.json(message);
   } catch (error) {
     res.status(400);

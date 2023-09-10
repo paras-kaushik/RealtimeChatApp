@@ -9,11 +9,12 @@
     "server": "nodemon backend/index.js",
     "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend",
     "fstart": "npm start --prefix frontend",
-    "burn": "npm run build && npm start"
+    "burn": "npm run build && npm run server"
   },
   "author": "Paras Kaushik",
   "license": "ISC",
   "dependencies": {
+    "amqplib": "^0.10.3",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
